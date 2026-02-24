@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!--  FORM -->
+    <div
+      id="registerForm"
+      class="bg-white w-full lg:w-[30vw] px-5 xl:px-7 2xl:px-10 py-6 sm:py-10 fixed z-99 left-[50%] -translate-x-[50%] -translate-y-[150%] transition duration-800 ease-in-out"
+    >
+      <h1 class="text-3xl font-bold text-gray-800 mb-8">Register</h1>
+
+      <form
+        id="form"
+        class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5"
+        onsubmit="formSubmit(event)"
+      >
+        <!-- First Name -->
+        <input
+          type="text"
+          name="fname"
+          id="fname"
+          placeholder="First Name"
+          class="col-span-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+        />
+
+        <!-- Last Name -->
+        <input
+          type="text"
+          name="lname"
+          id="lname"
+          placeholder="Last Name"
+          class="col-span-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+        />
+
+        <!-- Email -->
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email Address"
+          class="col-span-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+        />
+
+        <!-- Gender -->
+        <div class="col-span-2 flex gap-6 text-gray-700">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input
+              type="radio"
+              name="gender"
+              value="Male"
+              class="accent-indigo-500"
+            />
+            Male
+          </label>
+
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input
+              type="radio"
+              name="gender"
+              value="Female"
+              class="accent-indigo-500"
+            />
+            Female
+          </label>
+        </div>
+
+        <!-- Age -->
+        <input
+          type="number"
+          name="age"
+          id="age"
+          placeholder="Age"
+          class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+        />
+
+        <!-- City -->
+        <input
+          type="text"
+          name="city"
+          id="city"
+          placeholder="City"
+          class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+        />
+
+        <!-- Phone -->
+        <input
+          type="number"
+          name="num"
+          id="num"
+          placeholder="Phone Number"
+          class="col-span-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+        />
+
+        <!-- Password -->
+        <input
+          type="password"
+          name="pass"
+          id="pass"
+          placeholder="Password"
+          class="col-span-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+        />
+
+        <!-- Button -->
+        <button
+          id="submit"
+          type="submit"
+          class="col-span-2 bg-linear-to-r from-indigo-500 to-blue-500 text-white py-2 rounded-lg font-semibold hover:scale-[1.02] hover:shadow-lg transition-all duration-300 mb-4"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <!-- PANEL -->
+    <div
+      id="panel"
+      class="py-5 sm:py-6 md:py-10 bg-gray-100 min-h-screen transition-all duration-300"
+    >
+      <!-- OVERLAY -->
+      <div
+        id="overlay"
+        class="fixed inset-0 bg-black/30 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300 z-40"
+      ></div>
+      <div class="max-w-350 px-3 mx-auto w-full">
+        <div
+          class="w-full text-[12px] sm:text-[13px] xl:text-sm 2xl:text-[16px]"
+        >
+          <div
+            class="flex justify-between w-full rounded-3xl shadow-[0_10px_60px_rgba(226,236,249,0.5)] bg-white py-6 px-8 mb-5"
+          >
+            <h2 class="text-3xl font-bold tracking-tighter">User List</h2>
+            <button
+              class="py-2 px-5 bg-black text-white"
+              onclick="formAppear()"
+            >
+              + New User
+            </button>
+          </div>
+          <div
+            class="rounded-3xl shadow-[0_10px_60px_rgba(226,236,249,0.5)] bg-white p-5"
+          >
+            <div
+              class="grid grid-cols-10 text-[12px] border-b border-gray-300 px-4 sm:text-[16px] text-[#6C757D] font-medium tracking-tighter pb-3"
+            >
+              <span class="col-span-2">Name</span>
+              <span class="col-span-2">Email</span>
+              <span>Gender</span>
+              <span>Age</span>
+              <span>City</span>
+              <span>Phone</span>
+              <span class="col-span-2 ml-10">Action</span>
+            </div>
+
+            <ul id="list" class=""></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./script/script.js"></script>
+  </body>
+</html>
