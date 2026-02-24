@@ -67,7 +67,7 @@ const onRender = () => {
   list.innerHTML = "";
   userDetails.forEach((elem, index) => {
     const li = document.createElement("li");
-    li.className = "grid grid-cols-10 mb-3 border-b border-gray-300 py-5";
+    li.className = "grid grid-cols-10  border-b border-gray-300 py-5";
     li.innerHTML = `<span class="col-span-2 px-4">${elem.fname} ${elem.lname}</span>  <span class="col-span-2 px-2">${elem.email}</span>  <span class="px-2">${elem.gender}</span>  <span>${elem.age}</span>  <span>${elem.city}</span>  <span class="col-span-1">${elem.num}</span>  <span class="col-span-2 ml-4 xl:ml-8 "> <button onclick="handelEdit(${index})" id="edit">Edit</button><button onclick="handelDelete(${index})" id="delete">Delete</button></span>`;
     list.appendChild(li);
   });
