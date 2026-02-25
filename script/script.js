@@ -26,6 +26,56 @@ const formSubmit = (event) => {
   const city = form.city.value;
   const num = form.num.value;
   const pass = form.pass.value;
+
+  const fnameError = document.getElementById("fnameError");
+  const lnameError = document.getElementById("lnameError");
+  const emailError = document.getElementById("emailError");
+  const genderError = document.getElementById("genderError");
+  const ageError = document.getElementById("ageError");
+  const cityError = document.getElementById("cityError");
+  const numError = document.getElementById("numError");
+  const passError = document.getElementById("passError");
+
+  fnameError.textContent = "";
+  emailError.textContent = "";
+  numError.textContent = "";
+  passError.textContent = "";
+  lnameError.textContent = "";
+  genderError.textContent = "";
+  ageError.textContent = "";
+  cityError.textContent = "";
+
+  if (fname.length < 3) {
+    fnameError.textContent = " At least 3 characters";
+    return;
+  }
+  if (lname.length < 3) {
+    lnameError.textContent = "At least 3 characters";
+    return;
+  }
+  if (city.length < 3) {
+    cityError.textContent = "Enter a valid city name";
+    return;
+  }
+  if (!email.includes("@") || !email.includes(".")) {
+    emailError.textContent = "Enter a valid email";
+    return;
+  }
+  if (age === "") {
+    ageError.textContent = "Age is required";
+  } else if (age < 18 || age > 60) {
+    ageError.textContent = "Age must be between 18 and 60";
+  }
+  if (num.length !== 10) {
+    numError.textContent = "Phone number must be 10 digits";
+    return;
+  }
+
+  if (pass.length < 6) {
+    passError.textContent = "Password must be at least 6 characters";
+    return;
+  }
+
   const user = {
     fname,
     lname,
@@ -117,3 +167,7 @@ function closeForm() {
     overlay.classList.add("opacity-0", "pointer-events-none");
   }
 }
+
+const Close = () => {
+  closeForm();
+};
